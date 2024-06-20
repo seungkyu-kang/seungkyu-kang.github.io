@@ -1,27 +1,17 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [Freelancer](http://startbootstrap.com/template-overviews/freelancer/)
+# Seungkyu Kang's Portfolio
 
-[Freelancer](http://startbootstrap.com/template-overviews/freelancer/) is a one page freelancer portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid with hover effects, full page portfolio item modals, and a working PHP contact form.
+이 포트폴리오 웹사이트는 강승규의 웹 및 게임 프로그래밍 프로젝트를 소개합니다. 다양한 프로젝트와 함께 웹 프로그래머 및 게임 프로그래머로서의 기술과 경력을 강조합니다.
 
-## Getting Started
+## 프로젝트 소개
+1. **부산행 게임** - 영화 부산행을 기반으로 한 게임 프로젝트
+2. **오징어 게임** - 인기 드라마 오징어 게임을 기반으로 한 게임 프로젝트
+3. **인공지능 퀴즈 앱** - 인공지능을 활용한 퀴즈 애플리케이션 프로젝트
+4. **온라인 쇼핑몰** - 인터넷 쇼핑몰 웹사이트 프로젝트
+5. **온라인 뉴스** - 웹 개발 및 Ai를 활용한 온라인 뉴스
 
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](http://startbootstrap.com/template-overviews/freelancer/)
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-freelancer.git`
-* Fork the repo
+## Github 주소
+[https://github.com/seungkyu-kang/seungkyu-kang.github.io](https://github.com/seungkyu-kang/seungkyu-kang.github.io)
 
-## Bugs and Issues
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-freelancer/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/freelancer/).
-
-## Creator
-
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
-
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
-
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-freelancer/blob/gh-pages/LICENSE) license.
+##맨아래 희망직무 있음
+교수님이 주신 테마 활용
