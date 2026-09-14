@@ -5,3 +5,5 @@
 - `index.html` — 메인 페이지
 - `style.css` — 디자인 / 반응형 스타일
 - `script.js` — 스크롤 애니메이션 / 모바일 메뉴
+## 사이트주소
+https://seungkyu-kang.github.io
