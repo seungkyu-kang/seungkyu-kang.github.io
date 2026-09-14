@@ -7,7 +7,5 @@ GitHub Pages에 그대로 올릴 수 있는 정적 포트폴리오입니다.
 - `style.css` — 디자인 / 반응형 스타일
 - `script.js` — 스크롤 애니메이션 / 모바일 메뉴
 
-## 적용 방법
-기존 `seungkyu-kang.github.io` 저장소의 파일을 백업한 뒤, 이 폴더의 파일을 저장소 루트에 업로드하면 됩니다.
 
-현재 기존 사이트에서 사용 중인 프로젝트 이미지를 절대 URL로 연결해 두었습니다. 이미지까지 저장소 안에 포함하고 싶다면 `img/portfolio/`의 파일을 로컬 경로로 바꾸면 됩니다.
+https://seungkyu-kang.github.io/
