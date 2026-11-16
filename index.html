@@ -174,5 +174,21 @@
   <footer><span>© 2026 Kang Seungkyu.</span><span>Mathematics × Computer Science</span></footer>
 
   <script src="script.js"></script>
+
+  <script>
+  document.querySelector('[data-project="shop"]')?.addEventListener('click', () => {
+    window.location.href = 'malllab.html';
+  });
+
+  document.querySelector('[data-project="shop"]')?.setAttribute('role', 'link');
+  document.querySelector('[data-project="shop"]')?.setAttribute('tabindex', '0');
+
+  document.querySelector('[data-project="shop"]')?.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      window.location.href = 'malllab.html';
+    }
+  });
+</script>
 </body>
 </html>
