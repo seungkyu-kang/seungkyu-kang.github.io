@@ -1,9 +1,2 @@
-// 작은 화면에서도 상단 메뉴 링크가 자연스럽게 이동하도록 기본 동작을 유지합니다.
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener('click', (event) => {
-    const target = document.querySelector(link.getAttribute('href'));
-    if (!target) return;
-    event.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
+const targets=document.querySelectorAll('.intro,.screen-card,.feature-list article,.stack-grid>div,.learning .section-wrap');
+if('IntersectionObserver' in window){const observer=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');obs.unobserve(entry.target);}})},{threshold:.12});targets.forEach(target=>{target.classList.add('reveal');observer.observe(target);});}
