@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="C언어로 구현한 서바이벌 미니게임 팀 프로젝트 쭈꾸미의 상세 소개" />
+  <title>쭈꾸미 | Kang Seung-gyu Portfolio</title>
+  <link rel="stylesheet" href="jjuggumi.css" />
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="index.html#home" aria-label="포트폴리오 홈">SK<span>.</span></a>
+    <nav class="topnav" aria-label="페이지 메뉴">
+      <a href="index.html#projects">PROJECTS</a>
+      <a href="index.html#about">ABOUT</a>
+    </nav>
+    <a class="back-link" href="index.html#projects"><span aria-hidden="true">↖</span> PORTFOLIO</a>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="eyebrow"><span class="eyebrow-line"></span> TEAM PROJECT <span class="eyebrow-dot">/</span> C LANGUAGE</div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">SURVIVAL MINI-GAME COLLECTION</p>
+          <h1>쭈꾸미<span class="lime">.</span></h1>
+          <p class="hero-desc">여러 미니게임을 하나의 흐름으로 연결한<br class="desktop-only" /> 콘솔 기반 서바이벌 게임 프로젝트</p>
+          <p class="hero-summary">참가자의 능력치와 생존 상태가 게임 진행에 반영되며, 각 라운드를 거쳐 마지막 생존자를 가리는 팀 프로젝트입니다.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#overview">PROJECT OVERVIEW <span>↓</span></a>
+            <a class="text-btn" href="index.html#projects">다른 프로젝트 보기 <span>↗</span></a>
+          </div>
+        </div>
+        <div class="terminal" aria-label="게임 콘솔 화면을 표현한 장식">
+          <div class="terminal-bar"><div class="window-dots"><i></i><i></i><i></i></div><span>JJUGGUMI.exe</span><span class="terminal-live">● RUNNING</span></div>
+          <div class="terminal-body">
+            <div class="terminal-ascii">┌──────────────────────────────┐<br />│ <b>JJUGGUMI SURVIVAL</b>          │<br />├──────────────────────────────┤</div>
+            <div class="terminal-row"><span>PLAYER 00</span><b class="status-alive">ALIVE</b><span class="stat">STR <em>08</em></span></div>
+            <div class="terminal-row"><span>PLAYER 01</span><b class="status-dead">OUT</b><span class="stat">STR <em>09</em></span></div>
+            <div class="terminal-row"><span>PLAYER 02</span><b class="status-alive">ALIVE</b><span class="stat">STR <em>07</em></span></div>
+            <div class="terminal-row"><span>PLAYER 03</span><b class="status-alive">ALIVE</b><span class="stat">STR <em>10</em></span></div>
+            <div class="terminal-rule"></div>
+            <p class="terminal-message"><span class="blink">▌</span> NEXT ROUND: NIGHT GAME</p>
+            <div class="terminal-footer"><span>INT / STR / STM</span><span>WINDOWS CONSOLE</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div><span>PROJECT TYPE</span><strong>Team Project</strong></div>
+        <div><span>LANGUAGE</span><strong>C</strong></div>
+        <div><span>ENVIRONMENT</span><strong>Visual Studio · Windows</strong></div>
+        <div><span>FORMAT</span><strong>Console Game</strong></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="overview">
+      <div class="section-heading"><p class="section-index">01 / OVERVIEW</p><h2>게임의 흐름을 설계하고<br /><span class="muted">하나의 플레이 경험으로 연결하다.</span></h2></div>
+      <div class="overview-grid">
+        <div class="overview-main">
+          <p>쭈꾸미는 참가자들이 여러 생존 게임을 차례로 진행하며 최종 생존자를 가리는 C언어 콘솔 게임입니다. 각 참가자는 지능, 힘, 스태미나 등의 능력치를 가지며, 게임 도중 획득하는 아이템과 라운드 결과에 따라 상태가 달라집니다.</p>
+          <p>각 미니게임은 별도의 C 소스 파일로 분리되어 있고, 메인 프로그램에서 정해진 순서로 호출됩니다. 공통 플레이어 데이터와 콘솔 화면 출력 기능을 공유해 서로 다른 게임을 하나의 프로그램 안에서 동작하도록 구성했습니다.</p>
+        </div>
+        <div class="overview-note"><span class="note-mark">“</span><p>라운드마다 달라지는 생존 상태와 능력치를 다음 게임으로 이어가는 것이 프로젝트의 핵심 구조입니다.</p><span class="note-caption">CORE GAME LOOP</span></div>
+      </div>
+    </section>
+
+    <section class="section flow-section">
+      <div class="wrap">
+        <div class="section-heading"><p class="section-index">02 / GAME FLOW</p><h2>한 번의 실행,<br /><span class="muted">이어지는 다섯 개의 라운드.</span></h2></div>
+        <div class="flow-track">
+          <div class="flow-step"><span class="flow-num">00</span><div><b>초기화 & 인트로</b><p>jjuggumi.dat에서 참가자와 아이템 정보를 읽고 게임을 준비합니다.</p></div><span class="flow-file">jjuggumi.c</span></div>
+          <div class="flow-step"><span class="flow-num">01</span><div><b>이동 연습</b><p>플레이어 이동과 맵 표시를 확인하는 기본 조작 단계입니다.</p></div><span class="flow-file">sample.c</span></div>
+          <div class="flow-step featured"><span class="flow-num">02</span><div><b>무궁화꽃이 피었습니다</b><p>움직임과 정지 타이밍을 판단하며 결승 지점까지 이동합니다.</p></div><span class="flow-file">mugunghwa.c</span></div>
+          <div class="flow-step featured"><span class="flow-num">03</span><div><b>야간 게임</b><p>아이템을 탐색하고 다른 참가자와 상호작용하는 생존 라운드입니다.</p></div><span class="flow-file">nightgame.c</span></div>
+          <div class="flow-step featured"><span class="flow-num">04</span><div><b>줄다리기</b><p>양 팀의 유효 힘을 비교하며 줄의 위치와 탈락 여부가 결정됩니다.</p></div><span class="flow-file">juldarigi.c</span></div>
+          <div class="flow-step featured"><span class="flow-num">05</span><div><b>제기차기</b><p>좌우 위치를 선택하고 라운드 판정에 따라 통과 또는 탈락합니다.</p></div><span class="flow-file">jebi.c</span></div>
+          <div class="flow-step finish"><span class="flow-num">06</span><div><b>최종 결과</b><p>전체 라운드가 끝난 뒤 생존 상태를 확인해 우승자를 출력합니다.</p></div><span class="flow-file">ending()</span></div>
+        </div>
+        <p class="flow-footnote">※ 위 순서는 메인 함수(main)의 실제 호출 순서를 기준으로 정리했습니다.</p>
+      </div>
+    </section>
+
+    <section class="section wrap" id="games">
+      <div class="section-heading"><p class="section-index">03 / MINI GAMES</p><h2>ROUND DETAILS<span class="lime">.</span></h2><p class="heading-desc">각 라운드는 서로 다른 규칙과 입력 방식을 가지며, 공통 참가자 상태를 바탕으로 진행됩니다.</p></div>
+      <div class="game-grid">
+        <article class="game-card game-wide">
+          <div class="game-visual redlight"><div class="visual-label">ROUND 01</div><div class="redlight-scene"><span class="doll">●</span><span class="lane"></span><span class="runner r1">●</span><span class="runner r2">●</span><span class="runner r3">●</span><span class="scene-caption">STOP WHEN SHE TURNS</span></div></div>
+          <div class="game-info"><div class="game-title-line"><h3>무궁화꽃이 피었습니다</h3><span class="game-code">mugunghwa.c</span></div><p>영희가 문구를 외우는 동안 참가자들이 이동하고, 뒤를 돌아보는 순간 움직임이 감지되면 탈락하는 방식입니다. 플레이어 입력과 NPC의 확률 기반 이동을 함께 처리합니다.</p><div class="tag-row"><span>실시간 입력</span><span>확률 기반 NPC</span><span>생존 판정</span></div></div>
+        </article>
+        <article class="game-card">
+          <div class="game-visual night"><div class="visual-label">ROUND 02</div><div class="night-map"><span class="map-player">P0</span><span class="map-item i1">✦</span><span class="map-item i2">✚</span><span class="map-item i3">✦</span><span class="map-enemy e1">P2</span><span class="map-enemy e2">P4</span><span class="map-gridline"></span></div><div class="visual-caption">FIND · COLLECT · INTERACT</div></div>
+          <div class="game-info"><div class="game-title-line"><h3>야간 게임</h3><span class="game-code">nightgame.c</span></div><p>맵을 돌아다니며 아이템을 획득하거나 교환합니다. 참가자끼리 만나면 강탈, 회유, 무시 중 행동이 발생하고 능력치와 스태미나가 결과에 영향을 줍니다.</p><div class="tag-row"><span>아이템 시스템</span><span>플레이어 상호작용</span><span>능력치 계산</span></div></div>
+        </article>
+        <article class="game-card">
+          <div class="game-visual tug"><div class="visual-label">ROUND 03</div><div class="tug-scene"><div class="team left-team"><i>0</i><i>2</i><i>4</i></div><div class="rope"><span></span></div><div class="team right-team"><i>1</i><i>3</i><i>5</i></div><div class="pit">PIT</div></div><div class="visual-caption">TEAM POWER / STAMINA</div></div>
+          <div class="game-info"><div class="game-title-line"><h3>줄다리기</h3><span class="game-code">juldarigi.c</span></div><p>플레이어 번호를 기준으로 두 팀을 구성하고, 각 참가자의 힘과 스태미나를 반영해 팀의 유효 힘을 계산합니다. 줄의 위치가 이동하며 중앙 구멍에 빠진 참가자는 탈락합니다.</p><div class="tag-row"><span>팀별 힘 계산</span><span>상태 변화</span><span>라운드 판정</span></div></div>
+        </article>
+        <article class="game-card game-wide">
+          <div class="game-visual jegi"><div class="visual-label">ROUND 04</div><div class="jegi-board"><div class="jegi-lane"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div><div class="jegi-marker">PLAYER <b>@</b></div><div class="jegi-controls"><kbd>←</kbd><kbd>→</kbd><kbd>SPACE</kbd></div></div><div class="visual-caption">CHOOSE YOUR POSITION</div></div>
+          <div class="game-info"><div class="game-title-line"><h3>제기차기</h3><span class="game-code">jebi.c</span></div><p>참가자가 좌우로 위치를 이동한 뒤 스페이스바로 결과를 확인합니다. 매 판 무작위로 지정되는 탈락 위치와 참가자의 위치를 비교해 통과 또는 탈락을 판정합니다.</p><div class="tag-row"><span>키보드 조작</span><span>랜덤 판정</span><span>생존자 갱신</span></div></div>
+        </article>
+      </div>
+      <div class="practice-note"><span class="practice-icon">↳</span><div><b>이동 연습 단계도 포함</b><p><code>sample.c</code>에서는 플레이어 0이 방향키로 이동하고 나머지 참가자는 무작위로 움직이는 기본 맵 이동 로직을 확인할 수 있습니다.</p></div></div>
+    </section>
+
+    <section class="section system-section">
+      <div class="wrap">
+        <div class="section-heading"><p class="section-index">04 / SYSTEM DESIGN</p><h2>게임은 나뉘고,<br /><span class="muted">데이터와 화면은 공유합니다.</span></h2></div>
+        <div class="system-grid">
+          <div class="system-copy"><h3>공통 데이터 구조</h3><p>플레이어 구조체에 참가자 번호, 이름, 지능, 힘, 스태미나, 생존 여부, 아이템 보유 상태를 저장합니다. 미니게임은 이 공통 데이터를 읽고 변경하면서 다음 라운드로 상태를 전달합니다.</p><div class="stat-list"><div><span>INT</span><b>지능</b><small>상호작용 계산에 활용</small></div><div><span>STR</span><b>힘</b><small>줄다리기 및 능력 판정에 활용</small></div><div><span>STM</span><b>스태미나</b><small>행동에 따른 소모와 회복</small></div></div></div>
+          <div class="code-panel"><div class="code-head"><span>PROJECT STRUCTURE</span><span> C SOURCE </span></div><div class="tree"><p><span class="folder">▾</span> jjuggumi/</p><p class="indent"><span class="file">▸</span> jjuggumi.c <i>메인 실행 및 초기화</i></p><p class="indent"><span class="file">▸</span> jjuggumi.h <i>공통 구조체와 선언</i></p><p class="indent"><span class="file">▸</span> mugunghwa.c <i>무궁화 라운드</i></p><p class="indent"><span class="file">▸</span> nightgame.c <i>야간 라운드</i></p><p class="indent"><span class="file">▸</span> juldarigi.c <i>줄다리기 라운드</i></p><p class="indent"><span class="file">▸</span> jebi.c <i>제기차기 라운드</i></p><p class="indent"><span class="file">▸</span> sample.c <i>이동 연습</i></p><p class="indent"><span class="file">▸</span> canvas.c / .h <i>콘솔 맵 렌더링</i></p><p class="indent"><span class="file">▸</span> keyin.c / .h <i>키보드 입력 처리</i></p><p class="indent"><span class="file">▸</span> jjuggumi.dat <i>참가자 및 아이템 데이터</i></p></div></div>
+        </div>
+        <div class="architecture">
+          <div class="arch-box"><span>01</span><b>MAIN</b><small>jjuggumi.c</small></div><div class="arch-arrow">→</div>
+          <div class="arch-box"><span>02</span><b>MINI GAMES</b><small>각 라운드 .c 파일</small></div><div class="arch-arrow">→</div>
+          <div class="arch-box"><span>03</span><b>SHARED STATE</b><small>PLAYER / ITEM</small></div><div class="arch-arrow">→</div>
+          <div class="arch-box"><span>04</span><b>RESULT</b><small>생존자 판정</small></div>
+        </div>
+        <div class="shared-tools"><div><span class="tool-symbol">▦</span><b>Canvas</b><p>화면을 버퍼로 관리하고 변경된 문자만 콘솔에 출력해 맵을 갱신합니다.</p></div><div><span class="tool-symbol">⌨</span><b>Key Input</b><p>방향키와 지정 키 입력을 공통 함수로 읽어 각 미니게임에 전달합니다.</p></div><div><span class="tool-symbol">▤</span><b>Data File</b><p>텍스트 데이터 파일에서 참가자 능력치와 아이템 효과를 불러옵니다.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="contribution">
+      <div class="section-heading"><p class="section-index">05 / CONTRIBUTION</p><h2>함께 만들며 경험한<br /><span class="muted">기능 통합과 협업.</span></h2></div>
+      <div class="contribution-grid">
+        <div class="contribution-lead"><span class="big-asterisk">✳</span><p>MY<br />CONTRIBUTION<br /><strong>≈ 30%</strong></p><span class="contribution-lead-caption">TEAM PROJECT</span></div>
+        <div class="contribution-copy">
+          <p>팀원들과 프로젝트 전반을 함께 진행하며 미니게임 기능을 공동으로 구현했습니다. 특정 게임 하나에 한정된 역할보다는 기획부터 기능 구현, 통합 및 테스트까지 전반적인 개발 과정에 참여했습니다.</p>
+          <div class="contribution-share" aria-label="팀 프로젝트 기여도 추정: 팀장 약 40퍼센트, 본인 약 30퍼센트, 나머지 팀원 합계 약 30퍼센트">
+            <div class="share-heading"><b>TEAM CONTRIBUTION</b><span>대략적인 기여도</span></div>
+            <div class="share-bar"><span class="share-leader"></span><span class="share-me"></span><span class="share-members"></span></div>
+            <div class="share-legend">
+              <div><i class="legend-leader"></i><span>팀장</span><b>약 40%</b></div>
+              <div class="share-self"><i class="legend-me"></i><span>본인</span><b>약 30%</b></div>
+              <div><i class="legend-members"></i><span>나머지 팀원 합계</span><b>약 30%</b></div>
+            </div>
+          </div>
+          <ul><li>팀원들과 미니게임 규칙 및 주요 기능 공동 구현</li><li>공통 플레이어 데이터와 게임 상태를 활용한 기능 구성</li><li>각 게임이 하나의 실행 흐름으로 연결되도록 통합 과정 참여</li><li>전체 실행 과정에서 기능 확인 및 테스트</li></ul>
+          <p class="contribution-caution">※ 기여도는 팀 내에서 회고한 대략적인 비율이며, 세부 기능은 팀원들과 공동으로 작업했습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing wrap">
+      <p class="section-index">END OF PROJECT</p>
+      <h2>ONE GAME.<br /><span class="lime">MANY CHALLENGES.</span></h2>
+      <p>서로 다른 규칙의 미니게임을 하나의 프로그램으로 연결하며<br class="desktop-only" /> C언어 기반 게임 로직과 팀 개발 과정을 경험했습니다.</p>
+      <a class="primary-btn" href="index.html#projects">BACK TO PROJECTS <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="footer wrap"><a class="brand" href="index.html#home">SK<span>.</span></a><span>© Kang Seung-gyu · Portfolio</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">BACK TO TOP ↑</a></footer>
+</body>
+</html>
