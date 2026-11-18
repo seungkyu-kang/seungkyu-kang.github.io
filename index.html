@@ -134,9 +134,9 @@
 
       <div class="project-list">
 
-        <article class="project-card reveal" data-project="ai">
-          <div class="project-img"><img src="https://seungkyu-kang.github.io/img/portfolio/인공지능.png" alt="인공지능 퀴즈 앱 프로젝트 이미지" /><span>2025~</span></div>
-          <div class="project-info"><p>PROJECT 02</p><h3>인공지능 퀴즈 앱</h3><p>AI를 활용해 다양한 주제의 퀴즈를 생성하고 사용자가 문제를 풀며 점수를 기록할 수 있도록 구성한 애플리케이션입니다.</p><div class="tags"><span>AI</span><span>App</span></div></div>
+        <article class="project-card reveal" data-project="squid">
+          <div class="project-img"><img src="https://seungkyu-kang.github.io/img/portfolio/오징어게임.png" alt="쭈꾸미 게임 프로젝트 이미지" /><span>TEAM PROJECT</span></div>
+          <div class="project-info"><p>PROJECT 02</p><h3>쭈꾸미 게임</h3><p>C언어로 제작한 오징어 게임 콘셉트의 팀 프로젝트입니다. 여러 미니게임과 생존 판정을 하나의 게임 흐름으로 구성했으며, 팀원들과 기능을 함께 구현했습니다.</p><div class="tags"><span>C</span><span>Game Development</span><span>Team Project</span></div></div>
         </article>
 
         <article class="project-card reveal" data-project="shop">
@@ -190,6 +190,20 @@
   <script>
   document.querySelector('[data-project="shop"]')?.addEventListener('click', () => {
     window.location.href = 'malllab.html';
+  });
+
+  document.querySelector('[data-project="squid"]')?.addEventListener('click', () => {
+    window.location.href = 'jjuggumi.html';
+  });
+
+  document.querySelector('[data-project="squid"]')?.setAttribute('role', 'link');
+  document.querySelector('[data-project="squid"]')?.setAttribute('tabindex', '0');
+
+  document.querySelector('[data-project="squid"]')?.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      window.location.href = 'jjuggumi.html';
+    }
   });
 
   document.querySelector('[data-project="shop"]')?.setAttribute('role', 'link');
